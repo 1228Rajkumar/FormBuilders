@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Builder</title>
+    <style>
+        *{
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        h1 {
+            font-size: 40px;
+            font-weight: 500;
+            margin-bottom: 80px;
+            color: #222326;
+            text-align: center;
+            text-transform: capitalize;
+            border: 0;
+        }
+        main{
+            display: flex;
+            gap: 60px;
+        }
+        div{
+            border: 1.5px solid #DDDFE8;
+            border-radius: 15px;
+            box-shadow: 0 11px 20px rgb(64 67 86 / 4%);
+            padding: 20px;
+            text-align: center;
+            width: 400px;
+        }
+        div:hover{
+            border: 1.5px solid #295BF9;
+        }
+        div:hover button{
+            background-color: #295BF9;
+            color: white;
+        }
+        img{
+            width: 250px;
+        }
+        h2{
+            padding-top: 20px;
+            padding-bottom: 3px;
+            font-weight: 400;
+        }
+        p{
+            font-size: 0.9rem;
+            padding-bottom: 10px;
+        }
+        button{
+            border: 1.5px solid #DDDFE8;
+            border-radius: 10px;
+            padding: 10px 30px;
+            font-size: 20px;
+            border-radius: 10px;
+            outline: none;
+            border: none;
+            margin: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Create New Form</h1>
+    <main>
+        <div id="scratch">
+            <img src="../images/create.svg" alt="Create From Scratch">
+            <h2>Create From Scratch</h2>
+            <p>Create a new form for your business needs</p>
+            <button>Create</button>
+        </div>
+        <div id="import">
+            <img src="../images/import.svg" alt="Import From File">
+            <h2>Import From File</h2>
+            <p>Import your existing data to create a form.</p>
+            <button>Import</button>
+        </div>
+    </main>
+</body>
+<script>
+	document.getElementById("scratch").onclick = ()=>{
+		window.location = "../builder";
+	}
+    document.getElementById("import").onclick = ()=>{
+        window.location = "../import";
+    }
+</script>
+
+</html>
+

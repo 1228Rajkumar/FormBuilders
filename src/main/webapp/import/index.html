@@ -1,0 +1,143 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            font-family: sans-serif;
+            margin: 0%;
+            padding: 0%;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .drop_area {
+            border: 3px dashed gray;
+            width: 550px;
+            height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            border-radius: 20px;
+            box-shadow: 0 11px 20px rgb(64 67 86 / 4%);
+        }
+
+        button:hover {
+            background-color: #295BF9;
+            color: white;
+        }
+
+        p {
+            font-size: 27px;
+            padding: 10px;
+        }
+
+        .drop_area>span {
+            font-size: 27px;
+            padding: 5px;
+        }
+
+        .green_border {
+            border: 3px dashed #3362cc;
+        }
+
+        .drop_area>img {
+            width: 300px;
+            height: 300px;
+        }
+
+        button {
+            border: 1.5px solid #DDDFE8;
+            border-radius: 10px;
+            padding: 10px 30px;
+            font-size: 20px;
+            border-radius: 10px;
+            outline: none;
+            border: none;
+            margin: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="drop_area">
+        <img src="../images/drag-drop.png" alt="">
+        <p>Drop your CSV file here!</p>
+        <span>OR</span>
+        <button onclick="document.getElementById('getFile').click()">Browse File</button>
+        <input type='file' id="getFile" style="display:none" accept=".csv">
+    </section>
+
+</body>
+<script>
+    const DROP_AREA = document.querySelector(".drop_area")
+    let file;
+    let data = {};
+    DROP_AREA.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        DROP_AREA.classList.add("green_border");
+        console.log("file in drag area")
+    });
+
+    DROP_AREA.addEventListener('dragleave', () => {
+        DROP_AREA.classList.remove("green_border");
+    });
+    DROP_AREA.addEventListener('drop', (e) => {
+        e.preventDefault();
+        file = e.dataTransfer.files[0];
+        console.log(file);
+        let fileType = file.type;
+        let validExtension = "text/csv";
+        if (validExtension == fileType) {
+            console.log("file correct")
+
+            let xhr = new XMLHttpRequest();
+            xhr.open("POST", "../GetCsv");
+
+            let formData = new FormData();
+            formData.append("user", localStorage.getItem("user"));
+            formData.append("formName", localStorage.getItem("formName"));
+            formData.append("csvFile", file);
+            xhr.send(formData);
+
+            xhr.onload = () => {
+                sessionStorage.setItem("data", xhr.response);
+                window.location = "../Preferences";
+            }
+        }
+        else {
+            alert("invalid file");
+            console.log("invalid file");
+        }
+    });
+    document.getElementById("getFile").oninput = (e) => {
+        e.preventDefault();
+        file = e.target.files[0];
+        let xhr = new XMLHttpRequest();
+        xhr.open("POST", "../GetCsv");
+
+        let formData = new FormData();
+        formData.append("user", localStorage.getItem("user"));
+        formData.append("formName", localStorage.getItem("formName"));
+        formData.append("csvFile", file);
+        xhr.send(formData);
+
+        xhr.onload = () => {
+            sessionStorage.setItem("data", xhr.response);
+            window.location = "../Preferences";
+        }
+    }
+
+</script>
+
+</html>

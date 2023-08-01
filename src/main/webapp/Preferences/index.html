@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        nav {
+            display: flex;
+            height: 80px;
+            width: 100%;
+            background: #1b1b1b;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 50px 0 100px;
+            flex-wrap: wrap;
+        }
+
+        nav>* {
+            user-select: none;
+        }
+
+        nav .logo {
+            color: #fff;
+            font-size: 35px;
+            font-weight: 600;
+        }
+
+        #build {
+            font-size: 26px;
+            font-weight: 600;
+            padding: 5px 30px;
+            border-radius: 5px;
+            border: none;
+            background-color: #2691d9;
+            color: #fff;
+        }
+
+        .content {
+            height: calc(100vh - 130px);
+            padding: 10px;
+        }
+
+        .content span {
+            display: flex;
+            flex-direction: column;
+            margin: 20px;
+            flex-shrink: 0;
+        }
+
+        .mandatoryContent {
+            flex-direction: row;
+        }
+        
+        .headings,.row{
+            display: flex;
+            width: 100%;
+        }
+        .headings>*{
+            text-align: center;
+            font-size: 1.8rem;
+            padding:20px 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .headings{
+            position: sticky;
+            top: 0;
+            background-color: #fff;
+            z-index: 1;
+            background-color: #2691d9;
+            color: #fff;
+            border: 1px solid black;
+        }
+        .row{
+            border: 1px solid #2691d9;
+        }
+        .row>*{
+            padding:25px 10px;
+            text-align: center;
+            font-size: 1.5rem;
+            line-height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .row:nth-child(odd){
+            background-color: #e9efef;
+        }
+        .row:nth-child(even){
+            background-color: #fdfdfd;
+        }
+        .id{
+            flex-basis: 10%;
+        }
+        .name{
+            flex-basis: 20%;
+        }
+        .type{
+            flex-basis: 25%;
+        }
+        .instruction{
+            flex-basis: 25%;
+        }
+        .mandatory{
+            flex-basis: 10%;
+        }
+        .length{
+            flex-basis: 10%;
+        }
+
+        .fields{
+            height: 100%;
+            overflow-y: auto;
+        }
+        .fields input{
+            font-size: 1.5rem;
+            width: 90%;
+            padding: 8px;
+            border: 1px solid #c4c6cc;
+            outline: 0;
+            background-color: #fff;
+            box-shadow: none;
+            margin: 0;
+            float: none;
+        }
+        
+        input[type=checkbox]{
+            width: 40px;
+            height: 40px;
+        }
+        select{
+            width: 90%;
+            font-size: 1.5rem;
+            padding: 8px;
+            border: 1px solid #c4c6cc;
+            outline: 0;
+            background-color: #fff;
+            box-shadow: none;
+            margin: 0;
+            float: none;
+        }
+
+        textarea{
+            width: 90%;
+            height: 120px;
+            resize: none;
+            overflow: auto;
+            font-size: 14px;
+            padding: 8px;
+            border: 1px solid #c4c6cc;
+            outline: 0;
+            background-color: #fff;
+            box-shadow: none;
+            margin: 0;
+        }
+
+        footer {
+            background-color: #111;
+            color: #f2f2f2;
+            font-size: 20px;
+            padding: 10px;
+            text-align: center;
+            height: 50px;
+        }
+
+
+        .popup {
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            left: 0;
+            top: 0;
+            text-align: center;
+            font-family: sans-serif;
+            z-index: 3;
+            display: none;
+            backdrop-filter: blur(5px);
+            background-color: rgba(0, 0, 0, 0.4);
+            transition: 0.5s;
+        }
+
+        .popup>* {
+            padding: 20px;
+        }
+
+        .popup h1 {
+            font-size: 40px;
+        }
+
+        .popup p {
+            font-size: 32px;
+            font-weight: 600;
+        }
+
+        .popup>div {
+            background-color: #fff;
+            border-radius: 15px;
+            padding: 40px 30px;
+            width: fit-content;
+            position: relative;
+        }
+
+        .popup input {
+            background: #2691d9;
+            font-family: sans-serif;
+            font-weight: 500;
+            font-size: 24px;
+            width: 180px;
+            padding: 10px 30px;
+            border: none;
+            color: #fff;
+            margin: 10px auto;
+            border-radius: 10px;
+        }
+
+        .popup>div>span {
+            padding: 10px 30px;
+            font-size: 30px;
+            font-weight: 500;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            background-color: #44cd74;
+            z-index: 5;
+            display: none;
+        }
+
+        .popup>div>div {
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <nav>
+        <span class="logo">
+            Form Builder
+        </span>
+        <input id="build" type="button" value="Build">
+    </nav>
+    <main class="content">
+        <div class="fields">
+            <div class="headings">
+                <div class="id">Id</div>
+                <div class="name">Field Name</div>
+                <div class="type">Field Type</div>
+                <div class="instruction">Instruction</div>
+                <div class="mandatory">Mandatory</div>
+                <div class="length">Max-Len</div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="about-footer">
+        <p>Copyright&copy;2023. All rights Reserved.</p>
+    </footer>
+    <section class="popup">
+        <div>
+            <h1>Form Created!</h1>
+            <p>Use this link to fill the form!</p>
+            <div id="qrcode"></div>
+            <div class="btns">
+                <input id="copy" type="button" value="Copy URL">
+                <input id="close" type="button" value="Go Home">
+            </div>
+            <span>URL Copied!</span>
+        </div>
+    </section>
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+    <script>
+        let data,user,form;
+        let fields={};
+        let fieldsIdObject1 = {
+        	    "Name": 0,
+        	    "Number": 0,
+        	    "Email": 0,
+        	    "Phone": 0,
+        	    "MultiLine": 0,
+        	    "SingleLine": 0,
+        	    "Date": 0,
+        	    "DateTime": 0,
+        	    "Url": 0,
+        	    "Rating": 0,
+        	}
+        let options = ["Name","Email","Phone","Number","SingleLine","MultiLine","Date","DateTime","Url","Rating"];
+        let defaultLen = {"Name":"30","Email":"100","Phone":"20","Number":"10","SingleLine":"30","MultiLine":"150","Date":"20","DateTime":"20","Url":"50","Rating":"10"}
+        window.onload = ()=>{
+        	user = localStorage.getItem("user");
+        	form = localStorage.getItem("formName");
+            data = JSON.parse(sessionStorage.getItem("data"));
+            console.log(data);
+            
+            for (let j=0;j<data["headings"].length;j++) {
+                const row = document.createElement("div");
+                row.classList.add("row");
+                row.id = "x"+(j+1);
+
+                const id = document.createElement("div");
+                id.classList.add("id");
+                id.textContent = j+1;
+
+                const name = document.createElement("div");
+                name.classList.add("name");
+                const nameInput = document.createElement("input");
+                nameInput.value = data["headings"][j];
+                row.setAttribute("fieldName",data["headings"][j]);
+                nameInput.onchange = ()=>{
+                    row.setAttribute("fieldName",data["headings"][j]);
+                }
+                nameInput.setAttribute("type","text");
+                name.append(nameInput);
+
+                const type = document.createElement("div");
+                type.classList.add("type");
+                const select = document.createElement("select");
+                let typeVar = data["headings"][j];
+                let tempVar;
+                notSelected = true;
+                for (let i = 0; i < 10; i++) {
+                    const option = document.createElement("option");
+                    option.setAttribute("value",options[i]);
+                    option.textContent = options[i];
+                    if (options[i]==="SingleLine"){
+                        tempVar = option;
+                    }
+                    if (options[i].includes(typeVar) && notSelected){ 
+                        option.selected = true;
+                        notSelected = false;
+                    }
+                    select.append(option);
+                }
+                if (notSelected){
+                    tempVar.selected = true;
+                }
+                type.append(select);
+                row.setAttribute("fieldType",select.value);
+                select.onchange = ()=>{
+                    row.setAttribute("fieldType",select.value);
+                    if (select.value==="Rating"){
+                        len.disabled = true;
+                    }else{
+                        len.disabled = false;
+                    }
+                    len.setAttribute("value",defaultLen[select.value]);
+
+                }
+
+                const instruction = document.createElement("div");
+                instruction.classList.add("instruction");
+                const textarea = document.createElement("textarea");
+                textarea.setAttribute("placeholder","Type the instructions to be followed, if any")
+                row.setAttribute("instruct",textarea.value);
+                textarea.onchange = ()=>{
+                    row.setAttribute("instruct",textarea.value);
+                }
+                instruction.append(textarea);
+
+                const mandatory = document.createElement("div");
+                mandatory.classList.add("mandatory");
+                const mandate = document.createElement("input");
+                mandate.setAttribute("type","checkbox");
+                mandate.setAttribute("tabindex","1");
+                mandate.checked = true;
+                row.setAttribute("mandate",mandate.checked);
+                mandate.onchange = ()=>{
+                    row.setAttribute("mandate",mandate.checked);
+                }
+                mandatory.append(mandate);
+
+                const length = document.createElement("div");
+                length.classList.add("length");
+                let len = document.createElement("input");
+                len.setAttribute("type","number");
+                len.setAttribute("tabindex","1");
+                len.setAttribute("autocomplete","off");
+                len.setAttribute("role","spinbutton");
+                len.setAttribute("aria-valuemin","0");
+                len.setAttribute("aria-valuemax","255");
+                len.setAttribute("value",defaultLen[select.value]);
+                row.setAttribute("maxLen",len.getAttribute("value"));
+                len.onchange = ()=>{
+                    row.setAttribute("maxLen",len.getAttribute("value"));
+                }
+                length.append(len);
+
+
+                row.append(id,name,type,instruction,mandatory,length);
+                document.querySelector(".fields").append(row);
+            }
+        }
+
+        const fieldsIdObject = {
+            "Name": 0,
+            "Number": 0,
+            "Email": 0,
+            "Phone": 0,
+            "MultiLine": 0,
+            "SingleLine": 0,
+            "Date": 0,
+            "DateTime": 0,
+            "Url": 0,
+            "Rating": 0,
+        }
+
+        document.getElementById("build").onclick = ()=>{
+            let order = ""
+            document.querySelectorAll(".row").forEach((e)=>{
+                let field = {};
+                field["FieldName"] = e.getAttribute("fieldName");
+                field["Mandatory"] = e.getAttribute("mandate");
+                field["instruction"] = e.getAttribute("instruct");
+                field["max"] = e.getAttribute("maxLen");
+                fields[e.getAttribute("fieldType")+fieldsIdObject[e.getAttribute("fieldName")]] = field;
+                order+=e.getAttribute("fieldType")+fieldsIdObject[e.getAttribute("fieldName")]+",";
+            })
+            order = order.substring(0,order.length-1);
+            console.log(fields);
+            console.log(order);
+            let formData = new FormData();
+            formData.append("fields", JSON.stringify(fields));
+            formData.append("order", order);
+            formData.append("formName", form);
+            formData.append("user", user);
+            let today = new Date();
+            let months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+            formData.append("date", today.getDate() + " " + months[today.getMonth()] + " " + today.getFullYear());
+            let xhr = new XMLHttpRequest();
+            xhr.open("POST", "../CreateForm");
+            xhr.send(formData);
+            xhr.onload = () => {
+                if (xhr.status = 200) {
+                    let currentLocation = window.location.href;
+                    currentLocation = currentLocation.split("/");
+                    currentLocation = currentLocation.slice(0,currentLocation.length-2);
+                    let link = currentLocation.join("/")+ "/form?user=" + localStorage.getItem("user") + "&form=" + localStorage.getItem("formName");
+                    new QRCode(document.getElementById("qrcode"), link);
+                    document.querySelector(".popup").style.display = "flex";
+                    document.getElementById("copy").setAttribute("link", link);
+                    for (let i = 0; i < data["submissions"].length; i++) {
+                        let submission = {};
+                        const row = data["submissions"][i];
+                        for (let j = 0; j<row.length; j++) {
+                            submission[order.split(",")[j]]=row[j];
+                        }
+                        console.log(JSON.stringify(submission));
+                        let formData1 = new FormData();
+                        formData1.append("data", JSON.stringify(submission));
+                        formData1.append("user", user);
+                        formData1.append("formName", form);
+                        let xhr1 = new XMLHttpRequest();
+                        xhr1.open("POST", "../InsertData");
+                        xhr1.send(formData1);
+                        xhr1.onload = () => {
+                            if (xhr.status == 200) {
+                                if (xhr.responseText == 200) {
+                                    document.getElementById("form").style.display = "none";
+                                    document.getElementById("thanks").style.display = "block";
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        document.getElementById("copy").onclick = () => {
+            navigator.clipboard.writeText(document.getElementById("copy").getAttribute("link"));
+            document.querySelector(".popup>div>span").style.display = "block";
+            setTimeout(() => {
+                document.querySelector(".popup>div>span").style.display = "none";
+            }, 500);
+        }
+
+        document.getElementById("close").onclick = () => {
+            window.location = "../home";
+        }
+        
+    </script>
+
+</body>
+
+</html>

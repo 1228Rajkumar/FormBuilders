@@ -1,0 +1,292 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo&display=swap');
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css");
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Arimo', sans-serif;
+}
+
+body {
+    background-color: #dcdcdc;
+    word-wrap: break-word;
+    word-break: break-word;
+    -webkit-text-size-adjust: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+#form {
+    text-align: center;
+    width: 800px;
+    min-height: 90vh;
+    height: fit-content;
+    vertical-align: baseline;
+    color: #444444;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    background-color: #fff;
+    display: none;
+    margin: 50px 0;
+    padding-bottom: 50px;
+}
+
+.page_404 {
+    display: none;
+    text-align: center;
+    width: 800px;
+    height: fit-content;
+    vertical-align: baseline;
+    color: #444444;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    background-color: #fff;
+}
+
+#thanks {
+    display: none;
+    text-align: center;
+    width: 800px;
+    height: fit-content;
+    vertical-align: baseline;
+    color: #444444;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    background-color: #fff;
+}
+
+#thanks h2 {
+    padding: 5px;
+}
+
+#thanks>input {
+    margin: 30px;
+    outline: none;
+    padding: 10px;
+    color: #fff;
+    border: 1px solid;
+    border-color: #24A68A;
+    background: #24A68A;
+}
+
+#form h2 {
+    color: #222;
+    margin: 0;
+    padding: 0;
+    font-size: 2em;
+    font-weight: 400;
+}
+
+.submit {
+    padding: 10px;
+    color: #fff;
+    border: 1px solid;
+    border-color: #2691d9;
+    background: #2691d9;
+    text-decoration: none;
+    padding: 10px 40px 10px 40px;
+    font-weight: 400;
+    border-radius: 3px;
+    font-size: 15px;
+    margin-top: 15px;
+}
+
+#formFields {
+    text-align: left;
+    margin: 20px;
+}
+
+#formFields>div {
+    margin: 10px;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    appearance: none;
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    appearance: none;
+    -moz-appearance: textfield;
+}
+
+label {
+    display: block;
+    font-size: 15px;
+    color: #222;
+    margin: 0;
+    padding: 0 0 3px 0;
+    border: 0;
+}
+
+input {
+    background: #fff;
+    border: 1px solid #d2d2d2;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    padding: 8px 5px 8px 5px;
+    font-size: 16px;
+    color: #444;
+    outline: none;
+    margin: 0;
+    width: 300px;
+}
+
+input[type=date] {
+    text-transform: uppercase;
+}
+
+input[type=submit] {
+    width: fit-content
+}
+
+textarea {
+    width: 300px;
+    height: 150px;
+    outline: none;
+    font-size: 16px;
+    line-height: 20px;
+    border: 1px solid #d2d2d2;
+    color: #444;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.name {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.name>* {
+    margin: 0 20px 0 0;
+}
+
+.page_404 {
+    padding: 40px 0;
+    background: #fff;
+    font-family: 'Arvo', serif;
+}
+
+.page_404 img {
+    width: 100%;
+}
+
+.four_zero_four_bg {
+    background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
+    height: 400px;
+    background-position: center;
+}
+
+.four_zero_four_bg h1 {
+    font-size: 80px;
+}
+
+.four_zero_four_bg h3 {
+    font-size: 80px;
+}
+
+.contant_box_404 {
+    margin-top: -50px;
+}
+
+.error404 {
+    display: block;
+}
+
+.bi-star,
+.bi-star-fill {
+    font-size: 26px;
+    padding: 10px 5px;
+}
+
+.bi-star {
+    color: gray;
+}
+
+.bi-star-fill {
+    color: goldenrod;
+}
+
+.warn {
+    font-size: 14px;
+    color: red;
+    padding-top: 3px;
+    font-family: Arial;
+    display: none;
+}
+
+.instructions {
+    color: #7c7c7c;
+    font-size: 13px !important;
+    font-style: normal;
+    margin-top: 3px;
+    overflow: visible !important;
+    line-height: 1.5;
+    margin-bottom: 3px;
+}
+
+@media screen and (max-width:800px) {
+    #form {
+        min-height: 100vh;
+        width: 100%;
+        margin: 0;
+        overflow: scroll;
+    }
+
+    .name {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+    }
+
+    .name>* {
+        margin: 10px 0 0 0;
+    }
+
+    #thanks {
+        width: 100%;
+        height: 100%;
+    }
+
+    .error404 {
+        display: flex;
+    }
+
+    #incorrect {
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+    }
+
+    .container {
+        width: 100%;
+    }
+    .bi-calendar{
+    	display: none;
+    }
+    body{
+    	overflow: scroll;
+    }
+    #logo{
+	width: 40px;
+	height: 40px;
+}
+}
+.heading{
+	display: flex;
+	align-items: center;
+	border-bottom: 0.9px solid rgba(128, 128, 128, 0.4);
+	gap: 20px;
+	padding: 20px 0;
+}
+    #logo{
+	width: 60px;
+	height: 60px;
+}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+	<meta charset="utf-8">
+	<title>Form Builder</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+	<link rel="stylesheet" href="../error/error.css">
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<header>
+		<nav>
+			<span class="logo">
+				Form Builder
+			</span>
+			<ul>
+				<li><a href="../home">Home</a></li>
+				<li><a href="../About">About</a></li>
+				<li><a href="../Documentation" >Help</a></li>
+				<li><a class="active">Trash</a></li>
+				<li><a href="../changePassword">Change Password</a></li>
+				<li><a class="logout1">Log Out</a></li>
+			</ul>
+		</nav>
+	</header>
+	<div class="home main">
+		<div class="yourForms">
+			<span class="formsHeading">Your Forms</span>
+		</div>
+		<section id="forms" class="myForms">
+            
+        </section>
+	</div>
+	<section id="nothing">
+		<h1>Nothing Here.</h1>
+		<p>Go ahead create a form.</p>
+	</section>
+	<footer class="footer">
+		<p>Copyright&copy;<span class="year"></span>. All rights Reserved.</p>
+	</footer>
+	<div class="logout main">
+		<div class="sure">
+			<p>Are you sure?</p>
+			<div class="sure-btns">
+				<input id="sureOut" type="button" value="Yes">
+				<input id="cancelOut" type="button" value="No">
+			</div>
+		</div>
+	</div>
+	<div class="popupcntnr" id="popupcontainer">
+		<form id="popupForm" class="popup">
+			<label for="formname">Enter the Form Name:</label>
+			<input type="text" id="formname" name="formname" required>
+			<p class="warnings">Form Name Already Exists!</p>
+			<div id="btns">
+				<button type="submit" id="save" class="custom-btn btn-3">Create</button>
+				<button type="button" id="cancel" class="custom-btn btn-3">Cancel</button>
+			</div>
+		</form>
+	</div>
+	<section class="popup1">
+		<div>
+			<p>Use this link to fill the form!</p>
+			<div id="qrcode"></div>
+			<div class="btns">
+				<input id="copy" type="button" value="Copy URL">
+				<input id="close" type="button" value="Close">
+			</div>
+		
+			<span>URL Copied!</span>
+		</div>
+	</section>
+	<div class="delete main">
+		<div class="sure">
+			<p>Are you sure?</p>
+			<div class="sure-btns">
+				<input id="sureDelete" type="button" value="Yes">
+				<input id="cancelDelete" type="button" value="No">
+			</div>
+		</div>
+	</div>
+</body>
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+<script src="script.js"></script>
+</html>

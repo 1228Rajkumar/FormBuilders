@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <title>Form Builder</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <span class="logo">
+                Form Builder
+            </span>
+            <ul>
+                <li><a href="../">Home</a></li>
+                <li><a href="../about">About</a></li>
+                <li><a>Rest API</a></li>
+                <li><a href="../documentation">Documentation</a></li>
+                <li><a href="../signin">Sign In</a></li>
+                <li><a class="active">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="image">
+            <img src="../images/otp.png" alt="Verify">
+        </section>
+        <section class="content">
+            <h1>Verify Email Address</h1>
+            <h3>Please enter the OTP we've sent to</h3>
+            <p id="email"></p>
+
+            <form action="" class="sign-in-form">
+                <div class="verification-code">
+                    <input type="text" maxlength="1" id="x1" />
+                    <input type="text" maxlength="1" id="x2" />
+                    <input type="text" maxlength="1" id="x3" />
+                    <input type="text" maxlength="1" id="x4" />
+                    <input type="text" maxlength="1" id="x5" />
+                </div>
+                <h2 id="warn"></h2>
+                <p id="alert">your OTP will expire in <span id="min">01</span>:<span id="sec">30</span> seconds.</p>
+                <div>
+                    <input type="submit" value="Verify" class="btn solid" id="verifybtn">
+                    <input type="submit" value="Resend OTP" class="btn solid" id="resendbtn" disabled>
+                </div>
+            </form>
+        </section>
+    </main>
+</body>
+<script src="script.js"></script>
+</html>

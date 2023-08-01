@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <title>Form Builder</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <span class="logo">
+                Form Builder
+            </span>
+            <ul>
+                <li><a href="../">Home</a></li>
+                <li><a href="../about">About</a></li>
+                <li><a href="../documentation">Documentation</a></li>
+                <li><a href="../signin">Sign In</a></li>
+                <li><a class="active">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="image">
+            <img src="../images/signup.png" alt="Sign Up">
+        </section>
+        <section class="content">
+            <h1>Sign Up</h1>
+            <form action="" class="sign-in-form">
+                <div class="input-field">
+                    <i class="fas fa-user"></i>
+                    <input type="text" autocomplete="username" placeholder="Username" id="name" required>
+                </div>
+                <div class="input-field">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input type="text" autocomplete="email" placeholder="Email" id="email" required>
+                </div>
+                <div class="input-field">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="Password" id="password"
+                        required>
+                    <i class="far fa-eye" id="togglePassword" style="cursor: pointer;"></i>
+                </div>
+                <h2 id="warn"></h2>
+                <input type="submit" value="Sign Up" class="btn solid">
+                <a class="pass" href="../signin">Already a member? Sign In</a>
+            </form>
+        </section>
+        <div id="loading">
+	    	<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+			<lottie-player src="https://assets6.lottiefiles.com/packages/lf20_x62chJ.json"  background="transparent"  speed="1"  style="width: 60%; height: 60%;"  loop autoplay></lottie-player>
+	  	</div>
+    </main>
+</body>
+<script src="script.js"></script>
+
+</html>

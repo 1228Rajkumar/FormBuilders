@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Form Builder</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../error/error.css">
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <span class="logo">
+                Form Builder
+            </span>
+            <ul>
+                <li><a href="../home">Home</a></li>
+                <li><a href="../About">About</a></li>
+                <li><a href="../Documentation">Help</a></li>
+                <li><a href="../trash">Trash</a></li>
+                <li><a class="active">Change Password</a></li>
+                <li><a class="logout1">Log Out</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="change main">
+        <form>
+            <h2>Change Password</h2>
+            <div class="oldpwd">
+                <label id="oldpwd-lab" for="oldpwd">Old Password:</label>
+                <input name="oldpwd" id="oldpwd" class="input" type="password" required /><span
+                    id="error-oldpwd"></span>
+            </div>
+            <div class="newpwd">
+                <label id="newpwd-lab" for="newpwd">New Password:</label>
+                <input name="newpwd" id="newpwd" class="input" type="password" required /><span
+                    id="error-newpwd"></span>
+            </div>
+            <div class="new2pwd">
+                <label id="new2pwd-lab" for="new2pwd">Confirm Password:</label>
+                <input name="new2pwd" id="new2pwd" class="input" type="password" required /><span
+                    id="error-new2pwd"></span>
+            </div>
+            <p class="warnings"></p>
+            <button id="changePwd" type="submit">Submit</button>
+        </form>
+        <div class="success">Password Changed!</div>
+    </div>
+    <div class="logout main">
+        <div class="sure">
+            <p>Are you sure?</p>
+            <div class="sure-btns">
+                <input id="sureOut" type="button" value="Yes">
+                <input id="cancelOut" type="button" value="No">
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <p>Copyright&copy;<span class="year"></span>. All rights Reserved.</p>
+    </footer>
+</body>
+<script src="script.js"></script>
+</html>

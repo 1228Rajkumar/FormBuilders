@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Form Builder</title>
+      <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <span class="logo">
+                Form Builder
+            </span>
+            <ul>
+                <li><a href="../">Home</a></li>
+                <li><a href="../about">About</a></li>
+                <li><a href="../Documentation">Documentation</a></li>
+                <li><a class="active">Sign In</a></li>
+                <li><a href="../signup">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="image">
+            <img src="../images/forgot.png" alt="Forgot Password">
+        </section>
+        <section class="content">
+        <h2>Forgot Password</h2>
+        <h3>Enter your Registered Email to
+        get your old Password</h3>
+            <form id="forgot">
+            
+                <div class="input-field">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input type="text" placeholder="Your Registered Email" required id="email" name="mail">
+                </div>
+                <h2 id="warn">Invalid Email!</h2>
+                <input type="submit" value="Receive Password" class="btn solid">
+                <a class="pass" href="../signup">Don't have an account yet? Sign Up</a>
+            </form>
+        </section>
+    </main>
+    <div id="loading">
+	    	<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+			<lottie-player src="https://assets6.lottiefiles.com/packages/lf20_x62chJ.json"  background="transparent"  speed="1"  style="width: 60%; height: 60%;"  loop autoplay></lottie-player>
+	  	</div>
+</body>
+<script type="text/javascript" src="script.js"></script>
+</html>

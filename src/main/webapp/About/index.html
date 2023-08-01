@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <title>Form Builder</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <span class="logo">
+                Form Builder
+            </span>
+            <ul>
+                <li><a href="../home">Home</a></li>
+                <li><a class="active">About</a></li>
+                <li><a href="../Documentation">Help</a></li>
+                <li><a href="../trash">Trash</a></li>
+                <li><a href="../changePassword">Change Password</a></li>
+                <li><a class="logout1">Log Out</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="about">
+        <div class="about-section">
+            <h1 class="about-h1">About</h1>
+            <p>Form Builder is a tool that enables users to create various forms and share links of those forms with
+                others. This platform provides a simple and intuitive interface to build forms with various fields.
+                Additionally, it also allows users to view the collected data.</p>
+        </div>
+        <div class="about-features">
+            <h1 class="about-h1">Features</h1>
+            <div>
+                <h3>Builder</h3>
+                <p>Form Builder is the core feature of this platform. It allows users to create forms with various
+                    fields. Users can customize their forms by adding or removing fields.</p>
+            </div>
+            <div>
+                <h3>Sharing Forms</h3>
+                <p>Once a form is created, users can share links to the form with others by email, social media. The
+                    platform provides a unique URL for each form, making it easy to share and manage.</p>
+            </div>
+            <div>
+                <h3>Data Collection & Analysis</h3>
+                <p>The platform collects data from users who fill out the forms and stores it securely in the cloud.
+                    Users can view the data collected and analyze it to gain insights into their audience. Additionally,
+                    they can download the data as a CSV file for further analysis in other tools.</p>
+            </div>
+        </div>
+        <div class="team-members">
+            <h1 class="about-h1">Our Team</h1>
+            <div class="row">
+                <div class="card">
+                    <img src="../images/giri.jpg" alt="Giridharan S">
+                    <div class="container">
+                        <h2>Giridharan S</h2>
+                        <p class="title">Team Member</p>
+                        <p>giridharans.s@zohocorp.com</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="../images/nantha.jpg" alt="Nantha Kumar P">
+                    <div class="container">
+                        <h2>Nantha Kumar P</h2>
+                        <p class="title">Team Member</p>
+                        <p>nanthakumar.p@zohocorp.com</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="../images/raj.jpg" alt="Rajkumar D">
+                    <div class="container">
+                        <h2>Rajkumar D</h2>
+                        <p class="title">Team Member</p>
+                        <p>rajkumar.pd@zohocorp.com</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="../images/santhosh.jpg" alt="Santhosh Babu G">
+                    <div class="container">
+                        <h2>Santhosh Babu G</h2>
+                        <p class="title">Team Member</p>
+                        <p>santhoshbabu.g@zohocorp.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>Copyright&copy;<span id="year"></span>. All rights Reserved.</p>
+    </footer>
+    <div class="logout main">
+        <div class="sure">
+            <p>Are you sure?</p>
+            <div class="sure-btns">
+                <input id="sureOut" type="button" value="Yes">
+                <input id="cancelOut" type="button" value="No">
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    window.onload = () => {
+        document.getElementById("year").textContent = new Date().getFullYear();
+    }
+    document.querySelector(".logout1").onclick = () => {
+        scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+        window.onscroll = function () {
+            window.scrollTo(scrollLeft, scrollTop);
+        };
+        document.querySelectorAll(".main").forEach(a => a.classList.remove("rel"));
+        document.querySelector(".logout").style.display = "flex";
+    }
+    document.getElementById("cancelOut").onclick = () => {
+        document.querySelector(".logout").style.display = "none";
+        window.onscroll = () => { };
+    }
+    document.getElementById("sureOut").onclick = () => {
+        localStorage.removeItem("user");
+        localStorage.removeItem("form");
+        localStorage.removeItem("formName");
+        window.location = "../signin";
+    }
+    window.addEventListener("storage", () => { location.reload() });
+</script>
+
+</html>
